@@ -4,6 +4,7 @@ import json
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
+import seaborn as sns
 
 def load_music(name):
     script_dir = os.path.dirname(os.path.realpath(__file__)) 
