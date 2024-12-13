@@ -33,10 +33,8 @@ I'm building my own version of Spotify Wrapped, available year round.
 
 
 4. **Clean up**
-    Press Control+C to interupt terminal, then type 
-
-    '''bash 
+    
+    
     make clean
-    '''
     
 
