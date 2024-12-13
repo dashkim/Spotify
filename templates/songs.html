@@ -1,0 +1,125 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }}'s Songs Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        
+        .analysis-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-card h3 {
+            font-size: 1.6em;
+            color: #333;
+        }
+
+        .analysis-card p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .analysis-card .data {
+            font-weight: bold;
+            color: #1DB954;
+        }
+
+        .analysis-card .highlight {
+            color: #e74c3c;
+        }
+
+        .song-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .song-table th, .song-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .song-table th {
+            background-color: #1DB954;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/Spotify_Logo_RGB_Black.png') }}" alt="Spotify Logo">
+    </header>
+    
+    <main>
+        <h1>{{ name }}'s Songs Analysis</h1>
+        
+        <!-- Most Played Song -->
+        <div class="analysis-card">
+            <h3>Most Played Song</h3>
+            <p><span class="highlight">Track:</span> {{ most_played_song[0] }} by {{ most_played_song[2] }}</p>
+            <p><span class="highlight">Total Playtime:</span> {{ most_played_song[1] }}</p>
+        </div>
+        
+        <!-- Most Popular Song -->
+        <div class="analysis-card">
+            <h3>Most Popular Song</h3>
+            <p><span class="highlight">Track:</span> {{ most_popular_song[0] }} by {{ most_popular_song[1] }}</p>
+            <p><span class="highlight">Total Plays:</span> {{ most_popular_song[2] }}</p>
+        </div>
+
+        <!-- Forgotten Songs -->
+        <div class="analysis-card">
+            <h3>Forgotten Songs (Top 3 Not Played Recently)</h3>
+            <ul>
+                {% for track, artist in forgotten_songs %}
+                    <li>{{ track }} by {{ artist }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Songs Gaining Popularity -->
+        <div class="analysis-card">
+            <h3>Gaining Popularity</h3>
+            <p><span class="highlight">Track:</span> {{ gaining_songs[0] }} by {{ gaining_songs[1] }}</p>
+        </div>
+
+        <!-- Songs Losing Popularity -->
+        <div class="analysis-card">
+            <h3>Losing Popularity</h3>
+            <p><span class="highlight">Track:</span> {{ losing_songs[0] }} by {{ losing_songs[1] }}</p>
+        </div>
+
+        <!-- Most Streamed Artist -->
+        <div class="analysis-card">
+            <h3>Most Streamed Artist</h3>
+            <p><span class="highlight">Artist:</span> {{ most_streamed_artist }}</p>
+            <p><span class="highlight">Total Streams:</span> {{ total_streams }}</p>
+        </div>
+
+        <!-- Songs with Longest Average Playtime -->
+        <div class="analysis-card">
+            <h3>Longest Average Playtime Song</h3>
+            <p><span class="highlight">Track:</span> {{ longest_playtime_song[0] }} by {{ longest_playtime_song[1] }}</p>
+            <p><span class="highlight">Playtime:</span> {{ longest_playtime_song[2] }}</p>
+        </div>
+
+        <!-- Average Playtime -->
+        <div class="analysis-card">
+            <h3>Average Playtime for All Songs</h3>
+            <p><span class="highlight">Average Playtime:</span> {{ average_playtime }}</p>
+        </div>
+
+    </main>
+    
+    <footer>
+        <p>Spotify Data Analysis | Dash Kim</p>
+    </footer>
+</body>
+</html>

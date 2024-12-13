@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }}'s Artists Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .analysis-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-card h3 {
+            font-size: 1.6em;
+            color: #333;
+        }
+
+        .analysis-card p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .analysis-card .data {
+            font-weight: bold;
+            color: #1DB954;
+        }
+
+        .highlight {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/Spotify_Logo_RGB_Black.png') }}" alt="Spotify Logo">
+    </header>
+    
+    <main>
+        <h1>{{ name }}'s Artists Analysis</h1>
+
+        <!-- Most Played Artist -->
+        <div class="analysis-card">
+            <h3>Most Played Artist</h3>
+            <p><span class="highlight">Artist:</span> {{ most_played_artist[0] }}</p>
+            <p><span class="highlight">Total Playtime:</span> {{ most_played_artist[1] }}</p>
+        </div>
+
+        <!-- Most Popular Artist -->
+        <div class="analysis-card">
+            <h3>Most Popular Artist</h3>
+            <p><span class="highlight">Artist:</span> {{ most_popular_artist[0] }}</p>
+            <p><span class="highlight">Total Plays:</span> {{ most_popular_artist[1] }}</p>
+        </div>
+
+        <!-- Forgotten Artists -->
+        <div class="analysis-card">
+            <h3>Forgotten Artists (Top 3 Not Played Recently)</h3>
+            <ul>
+                {% for artist in forgotten_artists %}
+                    <li>{{ artist }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Artists Gaining Popularity -->
+        <div class="analysis-card">
+            <h3>Gaining Popularity</h3>
+            <p><span class="highlight">Artist:</span> {{ gaining_artists }}</p>
+        </div>
+
+        <!-- Artists Losing Popularity -->
+        <div class="analysis-card">
+            <h3>Losing Popularity</h3>
+            <p><span class="highlight">Artist:</span> {{ losing_artists }}</p>
+        </div>
+
+        <!-- Longest Average Playtime Artist -->
+        <div class="analysis-card">
+            <h3>Longest Average Playtime Artist</h3>
+            <p><span class="highlight">Artist:</span> {{ longest_playtime_artist[0] }}</p>
+            <p><span class="highlight">Playtime:</span> {{ longest_playtime_artist[1] }}</p>
+        </div>
+
+    </main>
+    
+    <footer>
+        <p>Spotify Data Analysis | Dash Kim</p>
+    </footer>
+</body>
+</html>

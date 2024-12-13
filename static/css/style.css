@@ -1,0 +1,108 @@
+/* General Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+}
+
+/* Header Style */
+header {
+  background-color: #1DB954;
+  padding: 20px;
+}
+
+header img {
+  width: 25%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+}
+
+/* Paragraph Style */
+.paragraph {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Dropdown Style */
+.dropdown {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Button Container (for the first three buttons) */
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+/* General Button Style */
+button {
+  padding: 20px 40px;
+  font-size: 18px; 
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Active Button Style */
+button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #1aa34a;
+}
+
+/* Footer Style */
+footer {
+  margin-top: 50px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* DSCI Button Styles */
+.dsci-button {
+  margin-top: 30px;  /* Add space between buttons */
+}
+
+#dsci-button {
+  background-color: #1DB954; /* Same green as other buttons */
+  color: white;
+  font-size: 18px; /* Same font size as other buttons */
+  padding: 20px 40px; /* Same padding as other buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#dsci-button:hover {
+  background-color: #1ed760; /* Lighter green on hover */
+}
+
+/* Centering DSCI Button */
+.dsci-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}

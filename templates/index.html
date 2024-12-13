@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Data Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/Spotify_Logo_RGB_Black.png') }}" alt="Spotify Logo">
+    </header>
+    
+    <main>
+        <div class="paragraph">
+            <p>Hello! Welcome to my Spotify analysis project. For privacy purposes, you will only have access to my spotify data from GitHub</p>
+        </div>
+
+        <div class="dropdown">
+            <label for="name-select">Select a name:</label>
+            <select id="name-select">
+                <option value="">--Please choose an option--</option>
+                <option value="Dash">Dash</option>
+                <option value="Ying">Ying</option>
+                <option value="Kyle">Kyle</option>
+                <option value="Badophie">Badophie</option>
+                <option value="Ben">Ben</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <a id="artists-link" href="#"><button id="artists-button">Artists</button></a>
+            <a id="songs-link" href="#"><button id="songs-button">Songs</button></a>
+            <a id="genres-link" href="#"><button id="genres-button">Genres</button></a>
+        </div>
+
+        <div class="dsci-button">
+            <a id="dsci-link" href="#"><button id="dsci-button">DSCI</button></a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Spotify Data Analysis | Dash Kim</p>
+    </footer>
+
+    <!-- JS dropdown-->
+    <script>
+        const nameSelect = document.getElementById('name-select');
+        const artistsButton = document.getElementById('artists-button');
+        const songsButton = document.getElementById('songs-button');
+        const genresButton = document.getElementById('genres-button');
+        const dsciButton = document.getElementById('dsci-button');
+    
+        const artistsLink = document.getElementById('artists-link');
+        const songsLink = document.getElementById('songs-link');
+        const genresLink = document.getElementById('genres-link');
+        const dsciLink = document.getElementById('dsci-link'); 
+    
+        nameSelect.addEventListener('change', function() {
+            const selectedName = nameSelect.value;
+            if (selectedName) {
+                // Activate buttons and update links
+                artistsButton.classList.add('active');
+                songsButton.classList.add('active');
+                genresButton.classList.add('active');
+                dsciButton.classList.add('active');
+    
+                artistsLink.href = `/artists/${selectedName}`;
+                songsLink.href = `/songs/${selectedName}`;
+                genresLink.href = `/genres/${selectedName}`;
+                dsciLink.href = `/dsci/${selectedName}`; 
+
+            } else {
+                // Deactivate buttons if no name is selected
+                artistsButton.classList.remove('active');
+                songsButton.classList.remove('active');
+                genresButton.classList.remove('active');
+                dsciButton.classList.remove('active');
+            }
+        });
+    </script>
+    
+</body>
+</html>

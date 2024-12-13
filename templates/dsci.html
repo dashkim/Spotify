@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSCI Data - {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+       
+        .analysis-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-card h3 {
+            font-size: 1.6em;
+            color: #333;
+        }
+
+        .analysis-card p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .analysis-card .data {
+            font-weight: bold;
+            color: #1DB954;
+        }
+
+        .analysis-card .highlight {
+            color: #e74c3c;
+        }
+
+        .graph-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .graph-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/Spotify_Logo_RGB_Black.png') }}" alt="Spotify Logo">
+    </header>
+    
+    <main>
+        <h1>Data Science Insights for {{ name }}</h1>
+
+        <!-- Minutes Played per Day Graph -->
+        <div class="graph-container">
+            <h2>Minutes Played per Day</h2>
+            <img src="data:image/png;base64,{{ img_base64 }}" alt="Minutes Played per Day Graph">
+        </div>
+        
+    </main>
+    
+    <footer>
+        <p>Spotify Data Analysis | Dash Kim</p>
+    </footer>
+</body>
+</html>
